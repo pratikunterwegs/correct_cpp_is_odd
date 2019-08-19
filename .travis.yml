@@ -3,7 +3,7 @@
 # Do not edit by hand
 
 language: cpp
-dist: bionic
+dist: disco
 compiler:
   - gcc
   # - clang 
