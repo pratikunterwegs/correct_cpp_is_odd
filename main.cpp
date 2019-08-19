@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
     // handle exceptions
     try {
         std::stoi(cliArgs[1]);
-        assert("Should not get here");
+        //assert("Should not get here"); // what is this line even for
     }
     catch (const std::invalid_argument&)
     {
