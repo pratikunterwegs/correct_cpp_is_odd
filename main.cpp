@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     // handle exceptions
     try {
         std::stoi(cliArgs[1]);
-        assert("!this is not okay");
+        assert(!"this is not okay");
     }
     catch (const std::invalid_argument&)
     {
