@@ -30,12 +30,14 @@ int main(int argc, char* argv[])
         assert("this is okay");
     } catch (const std::invalid_argument&)
     {
-        assert(!"nonsense argument");
+        assert("nonsense argument");
     } catch (const std::out_of_range&)
     {
-        assert(!"num too long for int");
+        assert("num too long for int");
     }
 
     // print for even
-    std::cout << cliArgs[1] << " is " << (std::stoi(cliArgs[1]) % 2 == 0 ? "even\n": "odd\n");
+    std::cout << (std::stoi(cliArgs[1]) % 2 == 0 ? "true\n": "false\n");
+
+    return 0;
 }
