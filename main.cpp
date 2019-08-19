@@ -5,36 +5,37 @@
 #include <ostream>
 #include <iterator>
 #include <cassert>
+#include <stdexcept>
 
 template <class T>
 
 /// function to cout vector retained from previous
 void cout_vector(const std::vector<T>& vec)
 {
-  std::copy(std::begin(vec), std::end(vec), std::ostream_iterator<T>(std::cout, " "));
+    std::copy(std::begin(vec), std::end(vec), std::ostream_iterator<T>(std::cout, " "));
 }
 
 /// main program
 int main(int argc, char* argv[])
 {
-  // convert argv to string retained from previous
-  std::vector<std::string> cliArgs(argv, argv + argc);
+    // convert argv to string retained from previous
+    std::vector<std::string> cliArgs(argv, argv + argc);
 
-  // convert string to int section
-  // check the function works
-  assert(std::stoi("123") == 123);
+    // check if any arguments
+    assert(argc > 1 && "insufficient arguments");
 
-  std::cout << cliArgs[1];
-  // try to convert and handle exceptions
-  try {
-      std::stoi(cliArgs[1]);
-      assert(!"this is not an integer");
-  } catch (const std::invalid_argument&) {
-    assert("this is okay");
-  }
+    // handle exceptions
+    try {
+        std::stoi(cliArgs[1]);
+        assert("this is okay");
+    } catch (const std::invalid_argument&)
+    {
+        assert(!"nonsense argument");
+    } catch (const std::out_of_range&)
+    {
+        assert(!"num too long for int");
+    }
 
-  // print vector
-  cout_vector(cliArgs);
-
-  return 0;
+    // print for even
+    std::cout << cliArgs[1] << " is " << (std::stoi(cliArgs[1]) % 2 == 0 ? "even\n": "odd\n");
 }
