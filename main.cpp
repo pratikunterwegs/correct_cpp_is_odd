@@ -29,10 +29,12 @@ int main(int argc, char* argv[])
     try {
         std::stoi(cliArgs[1]);
         assert("!this is not okay");
-    } catch (const std::invalid_argument&)
+    }
+    catch (const std::invalid_argument&)
     {
         exit(EXIT_FAILURE);
-    } catch (const std::out_of_range&)
+    }
+    catch (const std::out_of_range&)
     {
         exit(EXIT_FAILURE);
     }
