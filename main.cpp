@@ -25,17 +25,22 @@ int main(int argc, char* argv[])
     //cout_vector(cliArgs);
     if(cliArgs.size() == 1) exit(EXIT_FAILURE);
 
+    // check function
+    assert(std::stoi("123") == 123);
+
     // handle exceptions
     try {
         std::stoi(cliArgs[1]);
-        assert(!"this is not okay");
+        assert("Should not get here");
     }
     catch (const std::invalid_argument&)
     {
+        std::cerr << "not a num arg to stoi\n";
         exit(EXIT_FAILURE);
     }
     catch (const std::out_of_range&)
     {
+        std::cerr << "num too big for stoi\n";
         exit(EXIT_FAILURE);
     }
 
