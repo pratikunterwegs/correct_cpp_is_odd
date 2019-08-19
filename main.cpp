@@ -22,18 +22,19 @@ int main(int argc, char* argv[])
     std::vector<std::string> cliArgs(argv, argv + argc);
 
     // check if any arguments
-    assert(argc > 1 && "insufficient arguments");
+    //cout_vector(cliArgs);
+    if(cliArgs.size() == 1) exit(EXIT_FAILURE);
 
     // handle exceptions
     try {
         std::stoi(cliArgs[1]);
-        assert("this is okay");
+        assert("!this is not okay");
     } catch (const std::invalid_argument&)
     {
-        return 1;
+        exit(EXIT_FAILURE);
     } catch (const std::out_of_range&)
     {
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     // print for even
