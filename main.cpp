@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
     }
 
     // print for even
-    std::cout << (std::stoi(cliArgs[1]) % 2 == 0 ? "true\n": "false\n");
+    std::cout << (std::stoi(cliArgs[1]) % 2 == 0 ? "true": "false") << "\n";
 
     return 0;
 }
