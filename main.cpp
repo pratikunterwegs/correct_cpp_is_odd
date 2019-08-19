@@ -30,10 +30,10 @@ int main(int argc, char* argv[])
         assert("this is okay");
     } catch (const std::invalid_argument&)
     {
-        assert("nonsense argument");
+        return 1;
     } catch (const std::out_of_range&)
     {
-        assert("num too long for int");
+        return 1;
     }
 
     // print for even
